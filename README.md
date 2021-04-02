@@ -2,10 +2,10 @@
 A super simple, extremely small, and pretty useful tool for building dom elements in JavaScript
 
 ## Getting Started
-**Install**
+### Install
     npm install --save sencilla
 
-**Usage**
+### Usage
     import $ from 'sencilla';
     $('h1', 'Hola, Mundo');
 
@@ -37,20 +37,20 @@ Text-representatin of the element being created, in the following order:
 1) Attributes. Each is separated by a space, and functions the same as when createad in an HTML tag.
 
 ##### Examples:
-`$('div')` or `$('');`
-    <div></div>
+* `$('div')` or `$('');`
+    * `<div></div>`
 
-`$('div.block')` or `$('.block');`
-    <div class="block"></div>
+* `$('div.block')` or `$('.block');`
+    * `<div class="block"></div>`
 
-`$('h1.title');`
-    <h1 class="title"></h1>
+* `$('h1.title');`
+    * `<h1 class="title"></h1>`
 
-`$('input type="checkbox" checked');`
-    <input type="checkbox" checked>
+* `$('input type="checkbox" checked');`
+    * `<input type="checkbox" checked>`
 
-`$('i.icon.close#close-icon aria-hidden="true" title="Close Icon"');`
-    <i id="close-icon" aria-hidden="true" title="Close Icon" class="icon close"></i>
+* `$('i.icon.close#close-icon aria-hidden="true" title="Close Icon"');`
+    * `<i id="close-icon" aria-hidden="true" title="Close Icon" class="icon close"></i>`
 
 #### CONTENT
 Either a function or string
