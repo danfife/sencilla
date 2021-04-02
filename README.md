@@ -52,7 +52,7 @@ Text-representatin of the element being created, in the following order:
 * `$('i.icon.close#close-icon aria-hidden="true" title="Close Icon"');`
     * `<i id="close-icon" aria-hidden="true" title="Close Icon" class="icon close"></i>`
 
-#### CONTENT
+#### CONTENT (optional)
 Either a function or string
 ##### Content as text:
 * `$('span', 'Hello, World')` ⇒ `<span>Hello, World</div>`
@@ -79,7 +79,10 @@ Passes the dom element as an arg. This is usually unnecessary, since elements ar
         </li>
     </ul>
 
-#### ATTACH_NODE
+**Note**:
+If content arg is not specified, `ATTACH_NODE` and `REFERENCE_NDOE` can be used as 2nd and 2rd arguments, r espectively.
+
+#### ATTACH_NODE (optional)
 Determines which parent node to attach to. If not specified, attaches to the node in our current context. The context node is either the node for which we're currently executing its content function, or it is `document.body`.
 
     $('section', () => {
@@ -96,7 +99,7 @@ Be careful with code that has delayed execution, since its context is lost. For 
        };
     });
 
-#### REFERENCE_NODE
+#### REFERENCE_NODE (optional)
 Rather than appending to the `ATTACH_NODE` you can insert before this reference node.
 
     $('section', section => {

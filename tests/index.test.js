@@ -36,3 +36,16 @@ it('creates attributes', () => {
 it('creates text', () => {
   expect($('button', 'Click Me').innerText).toBe('Click Me');
 });
+
+it('attaches to another element', () => {
+  const el = document.createElement('div');
+  $('button', 'Click Me', el);
+  expect(el.children[0].tagName).toBe('BUTTON');
+  expect(el.children[0].innerText).toBe('Click Me');
+});
+
+it('attaches to another element as 2nd argument', () => {
+  const el = document.createElement('div');
+  $('input', el);
+  expect(el.children[0].tagName).toBe('INPUT');
+});

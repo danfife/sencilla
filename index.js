@@ -1,24 +1,21 @@
 const stack = [];
 const helper = document.createElement('i');
-export default (str, content, attach, ref) => {
+export default function() {
+  const args = Array.from(arguments);
   if (stack.length === 0) stack.push(document.body);
-  const m = (str.match(/^([^\s#]*)(?:#(\S+))?(.*)$/) || []);
+  const m = (args.shift().match(/^([^\s#]*)(?:#(\S+))?(.*)$/) || []);
   const m1 = (m[1] || '').split('.');
-  const dom = document.createElement(m1[0] || 'div');
-  helper.innerHTML = `<i ${m[3]}>`;
-  const child = helper.children[0];
-  child.getAttributeNames().forEach(name => {
-    dom.setAttribute(name, child.getAttribute(name));
-  });
-  if (m[2]) dom.setAttribute('id', m[2]);
+  helper.innerHTML = `<${m1[0] || 'div'} ${m[3]}>`;
+  const dom = helper.children[0].cloneNode();
+  if (m[2]) dom.id = m[2];
   m1.slice(1).forEach(c => dom.classList.add(c));
-  if (typeof content === 'string') {
-    dom.innerText = content;
-  } else if (typeof content === 'function') {
+  if (typeof args[0] === 'string') {
+    dom.innerText = args.shift();
+  } else if (typeof args[0] === 'function') {
     stack.unshift(dom);
-    content(dom);
+    args.shift()(dom);
     stack.shift();
   }
-  (attach || stack[0])[ref ? 'insertBefore' : 'appendChild'](dom, ref);
+  (args[0] || stack[0])[args[1] ? 'insertBefore' : 'appendChild'](dom, args[1]);
   return dom;
 };

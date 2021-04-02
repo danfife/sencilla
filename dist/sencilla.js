@@ -3,32 +3,29 @@ var $ = (function () {
 
   var stack = [];
   var helper = document.createElement('i');
-  var index = (function (str, content, attach, ref) {
+  function index () {
+    var args = Array.from(arguments);
     if (stack.length === 0) stack.push(document.body);
-    var m = str.match(/^([^\s#]*)(?:#(\S+))?(.*)$/) || [];
+    var m = args.shift().match(/^([^\s#]*)(?:#(\S+))?(.*)$/) || [];
     var m1 = (m[1] || '').split('.');
-    var dom = document.createElement(m1[0] || 'div');
-    helper.innerHTML = "<i ".concat(m[3], ">");
-    var child = helper.children[0];
-    child.getAttributeNames().forEach(function (name) {
-      dom.setAttribute(name, child.getAttribute(name));
-    });
-    if (m[2]) dom.setAttribute('id', m[2]);
+    helper.innerHTML = "<".concat(m1[0] || 'div', " ").concat(m[3], ">");
+    var dom = helper.children[0].cloneNode();
+    if (m[2]) dom.id = m[2];
     m1.slice(1).forEach(function (c) {
       return dom.classList.add(c);
     });
 
-    if (typeof content === 'string') {
-      dom.innerText = content;
-    } else if (typeof content === 'function') {
+    if (typeof args[0] === 'string') {
+      dom.innerText = args.shift();
+    } else if (typeof args[0] === 'function') {
       stack.unshift(dom);
-      content(dom);
+      args.shift()(dom);
       stack.shift();
     }
 
-    (attach || stack[0])[ref ? 'insertBefore' : 'appendChild'](dom, ref);
+    (args[0] || stack[0])[args[1] ? 'insertBefore' : 'appendChild'](dom, args[1]);
     return dom;
-  });
+  }
 
   return index;
 
