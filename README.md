@@ -3,11 +3,11 @@ A super simple, extremely small, and pretty useful tool for building dom element
 
 ## Getting Started
 **Install**
-npm install --save sencilla
+    npm install --save sencilla
 
 **Usage**
-`import $ from 'sencilla';`
-`$('h1', 'Hola, Mundo');`
+    import $ from 'sencilla';
+    $('h1', 'Hola, Mundo');
 
 ### Todo List Example
     const items = ['Start using sencilla.js', 'Focus on my project'];
@@ -38,19 +38,19 @@ Text-representatin of the element being created, in the following order:
 
 ##### Examples:
 `$('div')` or `$('');`
-<div></div>
+    <div></div>
 
 `$('div.block')` or `$('.block');`
-<div class="block"></div>
+    <div class="block"></div>
 
 `$('h1.title');`
-<h1 class="title"></h1>
+    <h1 class="title"></h1>
 
 `$('input type="checkbox" checked');`
-<input type="checkbox" checked>
+    <input type="checkbox" checked>
 
 `$('i.icon.close#close-icon aria-hidden="true" title="Close Icon"');`
-<i id="close-icon" aria-hidden="true" title="Close Icon" class="icon close"></i>
+    <i id="close-icon" aria-hidden="true" title="Close Icon" class="icon close"></i>
 
 #### CONTENT
 Either a function or string
