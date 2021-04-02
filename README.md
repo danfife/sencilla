@@ -80,7 +80,9 @@ Passes the dom element as an arg. This is usually unnecessary, since elements ar
     </ul>
 
 **Note**:
-If content arg is not specified, `ATTACH_NODE` and `REFERENCE_NDOE` can be used as 2nd and 2rd arguments, r espectively.
+If content arg is not specified, `ATTACH_NODE` and `REFERENCE_NDOE` can be used as 2nd and 3rd arguments, r espectively, as in this example:
+
+    $('input', document.body);
 
 #### ATTACH_NODE (optional)
 Determines which parent node to attach to. If not specified, attaches to the node in our current context. The context node is either the node for which we're currently executing its content function, or it is `document.body`.
