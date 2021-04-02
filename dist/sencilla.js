@@ -1,9 +1,10 @@
 var $ = (function () {
   'use strict';
 
-  var stack = [document.body];
+  var stack = [];
   var helper = document.createElement('i');
   var index = (function (str, content, attach, ref) {
+    if (stack.length === 0) stack.push(document.body);
     var m = str.match(/^([^\s#]*)(?:#(\S+))?(.*)$/) || [];
     var m1 = (m[1] || '').split('.');
     var dom = document.createElement(m1[0] || 'div');

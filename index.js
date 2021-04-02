@@ -1,6 +1,7 @@
-const stack = [document.body];
+const stack = [];
 const helper = document.createElement('i');
 export default (str, content, attach, ref) => {
+  if (stack.length === 0) stack.push(document.body);
   const m = (str.match(/^([^\s#]*)(?:#(\S+))?(.*)$/) || []);
   const m1 = (m[1] || '').split('.');
   const dom = document.createElement(m1[0] || 'div');
