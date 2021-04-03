@@ -1,4 +1,5 @@
-import $ from '../index';
+const $ = require('../index');
+
 const content = callback => {
   document.body.innerHTML = '';
   callback();
@@ -8,6 +9,7 @@ const content = callback => {
 it('creates element with tag', () => {
   expect(content(() => $('div'))).toBe('<div></div>');
   expect(content(() => $(''))).toBe('<div></div>');
+  expect(content(() => $())).toBe('<div></div>');
   expect(content(() => $('h1'))).toBe('<h1></h1>');
 });
 

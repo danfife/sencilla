@@ -2,10 +2,9 @@
   "name": "sencilla",
   "version": "0.0.4",
   "description": "A super simple, super small, and pretty useful tool for building dom elements in JavaScript",
-  "main": "index.js",
   "scripts": {
     "test": "jest",
-    "prebuild": "npm test",
+    "prebuild": "npm test && rimraf dist",
     "build": "rollup -c"
   },
   "keywords": [
@@ -14,12 +13,14 @@
   ],
   "author": "daniel.fife@gmail.com",
   "license": "ISC",
+  "main": "index.js",
   "devDependencies": {
     "@babel/core": "^7.13.14",
     "@babel/preset-env": "^7.13.12",
     "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@rollup/plugin-commonjs": "^18.0.0",
     "jest": "^26.6.3",
+    "rimraf": "^3.0.2",
     "rollup": "^2.44.0",
     "rollup-plugin-terser": "^7.0.2"
   }

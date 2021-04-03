@@ -37,19 +37,19 @@ Text-representatin of the element being created, in the following order:
 1) Attributes. Each is separated by a space, and functions the same as when createad in an HTML tag.
 
 ##### Examples:
-* `$('div')` or `$('');`
+* `$('div')` or `$('')` or `$()`
     * `<div></div>`
 
-* `$('div.block')` or `$('.block');`
+* `$('div.block')` or `$('.block')`
     * `<div class="block"></div>`
 
-* `$('h1.title');`
+* `$('h1.title')`
     * `<h1 class="title"></h1>`
 
-* `$('input type="checkbox" checked');`
+* `$('input type="checkbox" checked')`
     * `<input type="checkbox" checked>`
 
-* `$('i.icon.close#close-icon aria-hidden="true" title="Close Icon"');`
+* `$('i.icon.close#close-icon aria-hidden="true" title="Close Icon"')`
     * `<i id="close-icon" aria-hidden="true" title="Close Icon" class="icon close"></i>`
 
 #### CONTENT (optional)
